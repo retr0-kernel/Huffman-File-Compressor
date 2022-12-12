@@ -29,3 +29,5 @@ The same can be seen in the tree below
 
 
     0-7 HUFFMAN TREE
+ ![image](https://user-images.githubusercontent.com/87553028/206997765-20c36be3-514b-4e4b-bc30-371efee3deba.png)
+
