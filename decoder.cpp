@@ -30,7 +30,7 @@ bool dothuf(string s){
 
 
 
-////////Building the Huffman Tree//////////
+////////Rebuilding the Huffman Tree//////////
 node* buildTree(string& huffmanTree,ll hlen,ll& p){
     if(p>=hlen){
         return NULL;
