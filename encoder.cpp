@@ -5,6 +5,7 @@ using namespace std;
 
 string data;
 
+//Calculating the frequency
 class node
 {
 public:
