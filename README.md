@@ -18,7 +18,7 @@
     3. Retrieve the modified ID for each componant of the message.
     4. Create a Reference Table for the new alloted values to the characters.
 
-Refer encode.cpp[a link](https://github.com/user/repo/blob/branch/other_file.md) to see what is done by each segment of code.
+Refer [encode.cpp](https://github.com/retr0-kernel/Huffman-File-Compressor/blob/main/README.md) to see what is done by each segment of code.
 
 The reason why this approach is currently the most effecient is because it reduces the overall tree length by almost 4 times in average cases and worst case is near to average case of Huffman cide.
 
