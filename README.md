@@ -1,3 +1,5 @@
+        FILE COMPRESSION USING HUFFMAN ADAPTED ENCODING
+
 - C++ programs which can compress and extract the file using ADAPTED HUFFMAN CODING : A lossless data compression using variable length codes. It is the most efficient algorithm for data compression.
 
 - The program encode.cpp needs the name of file as an argument. It will the compress the file using Huffman encoding algorithm and generate a new compressed file with .huf extension.
