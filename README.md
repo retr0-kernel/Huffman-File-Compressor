@@ -18,13 +18,28 @@
     3. Retrieve the modified ID for each componant of the message.
     4. Create a Reference Table for the new alloted values to the characters.
 
-                ALGORITHM
+                ALGORITHM for ENCODER
         
 -The priority queue (implemented as a min heap) has a time complexity of O(log n) for inserting and removing elements, so the overall time complexity of the huffman tree construction is O(n log n).
 
 -The time complexity of the remaining parts of the code, such as reading the input file, counting the frequencies of the characters, and generating the mappings, are all O(n) operations, so they do not significantly affect the overall time complexity.
 
 -Note: The above analysis assumes that the time complexity of the map data structure used in the code is O(1) for insert and lookup operations, which is generally the case for most modern implementations of the map data structure.
+
+                ALGORITH for DECODER
+- Check if the input file is '.huf' format by calling the 'dothuf' function with the input file name as the argument. If it returns false, print "Invalid Input file" and return 0.
+- Read the input file and store its contents in the 'data' string. If the file cannot be found, print "File not found" and return 0.
+- Extract the padding and Huffman tree length from the 'data' string.
+- Extract the Huffman tree from the 'data' string.
+- Build the Huffman tree using the 'buildTree' function with the extracted Huffman tree string and its length as arguments.
+- Extract the encoded data from the 'data' string.
+- Initialize a string 'decodedData' and a pointer 'p' to the root of the Huffman tree.
+- Iterate through the encoded data, shifting left in the Huffman tree if the current character is '0' and shifting right if it is '1'. If the current node is a leaf node, append its character to 'decodedData' and reset 'p' to the root of the tree.
+- Remove the padding from the 'decodedData' string.
+- Write the 'decodedData' string to the output file.
+- Close the output file.
+- Print "Decompression Done!!"
+- End the algorithm.
         
 Refer [encode.cpp](https://github.com/retr0-kernel/Huffman-File-Compressor/blob/main/README.md) to see what is done by each segment of code.
 
