@@ -39,3 +39,47 @@ As visible in the tree, the hieght is 8-bits, whereas in the 0-7 Huffman Code, i
  ![WhatsApp Image 2022-12-12 at 14 07 53](https://user-images.githubusercontent.com/87553028/207003246-d2f889d7-d5b9-4a31-9c94-39eb43993746.jpg)
 
 This is what the input and output will look like in the terminal and all the files will be read or created locally on the system in the background.
+
+
+                -------------------ENCODE-------------------
+        Given code defines a string variable called data and two classes: node and comp.
+
+The node class represents a node in the Huffman tree, which is used to encode the input data. Each node has four data members: left, right, val, and freq. The left and right members are pointers to other node objects and are used to link the nodes in the tree. The val member stores the character value of the node, and the freq member stores the frequency of occurrence of the character in the input data. The node class has a constructor that initializes these data members when a new node object is created.
+
+        *Defining comp class*
+
+The comp class defines a comparison operator that compares the frequencies of two node objects. This operator is used to sort the node objects in a priority queue, with the nodes having the lowest frequency appearing first in the queue.
+
+        getMappings function
+
+The getMappings function is used to find the Huffman codes for each character in the input data. It takes a pointer to a node object (the root of the Huffman tree) and a reference to a map object (which stores the mappings of characters to their corresponding Huffman codes) as arguments, and a string called s that stores the current code being built. The function works by recursively traversing the tree and appending a '0' to s when it moves left and a '1' when it moves right. When it reaches a leaf node (a node with no children), it stores the current value of s in the map object as the Huffman code for the character stored in the leaf node.
+
+        convertToString function
+
+The convertToString function is used to flatten the Huffman tree into a string representation. It takes a pointer to a node object (the root of the Huffman tree) as an argument and returns a string that represents the tree. If the current node is a leaf node, the function appends a '-' character and the character value of the node to the string and returns it. Otherwise, it recursively calls itself on the left and right child nodes and concatenates the returned strings with '0' and '1' characters, respectively.
+
+        Main Function
+
+The main function is the entry point of the program. It first checks whether the program was called with the name of an input file as an argument. If not, it prints an error message and exits. Otherwise, it reads the contents of the input file into the data variable. Next, it counts the frequencies of each character in the data string and stores them in a map object called freqmap. It then creates a node object for each character and pushes them into a priority queue called minHeap. The queue is sorted using the comparison operator defined in the comp class.
+
+
+                -------------------DECODE-------------------
+        bool dothuf(string s)
+
+This function takes a string as input and returns true if the string ends with the substring ".huf", and false otherwise. This function is used to check whether the input file is in the correct format.
+
+        node buildTree(string& huffmanTree, ll hlen, ll& p)*
+
+This function takes a string representing a Huffman tree, the length of the tree, and a reference to an integer p as input. It returns a pointer to the root node of the Huffman tree, which is constructed by recursively parsing the input string.
+
+        string toBinary(ll x)
+
+This function takes an integer x as input and returns a string of 8 characters representing the binary representation of x.
+
+        Main Function
+
+ This is the main function of the program, which is responsible for reading in the input file, extracting the Huffman tree and encoded data from the file, constructing the Huffman tree, and using the tree to decode the encoded data.
+
+The program begins by checking that the correct number of command line arguments have been provided and that the input file is in the correct format. If either of these checks fail, the program prints an error message and exits. Next, the program reads in the entire contents of the input file as a string, and extracts the padding and Huffman tree length from the first two lines of the file. The program then extracts the Huffman tree from the input file, and uses the buildTree function to construct the tree.
+
+After the Huffman tree has been constructed, the program processes the encoded data by iterating through each character in the data string, and traversing the Huffman tree accordingly. When a leaf node is reached, the program adds the character stored at that node to the result string. Once all of the encoded data has been processed, the program removes the padding from the result string, and writes the result to the specified output file.
