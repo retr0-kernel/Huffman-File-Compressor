@@ -64,6 +64,7 @@ The main function is the entry point of the program. It first checks whether the
 
 
                 -------------------DECODE-------------------
+Eplanation of DECODER
         bool dothuf(string s)
 
 This function takes a string as input and returns true if the string ends with the substring ".huf", and false otherwise. This function is used to check whether the input file is in the correct format.
