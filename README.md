@@ -18,6 +18,8 @@
     3. Retrieve the modified ID for each componant of the message.
     4. Create a Reference Table for the new alloted values to the characters.
 
+Let us see the Algo.
+
                 ALGORITHM for ENCODER
 - Read the input file and store the contents as a string.
 - Initialize an empty map called 'freqmap' to store the frequencies of each character in the input file.
