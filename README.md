@@ -19,14 +19,24 @@
     4. Create a Reference Table for the new alloted values to the characters.
 
                 ALGORITHM for ENCODER
-        
--The priority queue (implemented as a min heap) has a time complexity of O(log n) for inserting and removing elements, so the overall time complexity of the huffman tree construction is O(n log n).
+- Read the input file and store the contents as a string.
+- Initialize an empty map called 'freqmap' to store the frequencies of each character in the input file.
+- Iterate through the input string and count the frequency of each character.
+- For each character in the input string, create a node object with the frequency and character value, and push it into a priority queue called 'minHeap'.
+- While the size of the minHeap is greater than 1, do the following:
+- Pop the top two elements (n1 and n2) from the minHeap.
+- Create a new node with the sum of the frequencies of n1 and n2, and set the left and right children of the node to n1 and n2 respectively.
+- Push the new node into the minHeap.
+- The remaining node in the minHeap is the root of the huffman tree.
+- Initialize an empty map called 'table' to store the character-code mappings.
+- Call the 'getMappings' function to generate the character-code mappings and store them in the 'table' map.
+- Initialize a string called 'encodedData' to store the encoded data.
+- Iterate through the input string and for each character, append the corresponding code from the 'table' map to the 'encodedData' string.
+- Flatten the huffman tree to a string using the 'convertToString' function and store it in a string called 'huffmanTree'.
+- Calculate the number of padding bits needed to make the encoded data a multiple of 8 bits.
+- Write the number of padding bits, the length of the huffman tree, the huffman tree string, and the encoded data string to the output file.
 
--The time complexity of the remaining parts of the code, such as reading the input file, counting the frequencies of the characters, and generating the mappings, are all O(n) operations, so they do not significantly affect the overall time complexity.
-
--Note: The above analysis assumes that the time complexity of the map data structure used in the code is O(1) for insert and lookup operations, which is generally the case for most modern implementations of the map data structure.
-
-                ALGORITH for DECODER
+                ALGORITHM for DECODER
 - Check if the input file is '.huf' format by calling the 'dothuf' function with the input file name as the argument. If it returns false, print "Invalid Input file" and return 0.
 - Read the input file and store its contents in the 'data' string. If the file cannot be found, print "File not found" and return 0.
 - Extract the padding and Huffman tree length from the 'data' string.
@@ -40,6 +50,14 @@
 - Close the output file.
 - Print "Decompression Done!!"
 - End the algorithm.
+
+                TIME COMPLEXITY
+- The priority queue (implemented as a min heap) has a time complexity of O(log n) for inserting and removing elements, so the overall time complexity of the huffman tree construction is O(n log n).
+
+- The time complexity of the remaining parts of the code, such as reading the input file, counting the frequencies of the characters, and generating the mappings, are all O(n) operations, so they do not significantly affect the overall time complexity.
+
+Note: The above analysis assumes that the time complexity of the map data structure used in the code is O(1) for insert and lookup operations, which is generally the case for most modern implementations of the map data structure.
+
         
 Refer [encode.cpp](https://github.com/retr0-kernel/Huffman-File-Compressor/blob/main/README.md) to see what is done by each segment of code.
 
